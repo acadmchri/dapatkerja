@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+/* NAVBAR */
+.navbar {
+    padding: 20px 40px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0077ff;
+}
+
+.nav-buttons a {
+    margin-left: 15px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+}
+
+.login-btn {
+    background: #0077ff;
+}
+
+.signup-btn {
+    background: #00cc66;
+}
+
+/* HERO */
+.hero {
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 36px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+}
+
+.cta {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 15px 30px;
+    background: #0077ff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* SUBSCRIPTION PAGE */
+.plans {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.plan-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.plan-card {
+    width: 260px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.plan-card button {
+    padding: 10px 20px;
+    background: #0077ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* FREE DASHBOARD */
+.dashboard {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.dashboard-buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.dash-btn {
+    padding: 18px 30px;
+    background: #0077ff;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.nav-logo {
+    height: 35px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0077ff;
+}
+
+.content-box {
+    max-width: 700px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
