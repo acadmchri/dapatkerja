@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f6ff;
+        }
+
+        /* NAVBAR - MODIFIED TO HOME PAGE STYLE */
+        .navbar {
+            /* Changed background to white */
+            background: white; 
+            /* Changed color to blue/dark for contrast */
+            color: #003d99; 
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Added subtle shadow */
+            z-index: 10;
+        }
+        .navbar h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .navbar a {
+            /* Links are now styled like the Logout button */
+            color: #007bff; 
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+            padding: 8px 15px;
+            border: 1px solid #007bff; /* Added border */
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+        .navbar a:hover {
+            background: #007bff;
+            color: white;
+            opacity: 1;
+        }
+        /* Style for the logo text (DapatKerja) */
+        .navbar .logo-text {
+            color: #003d99;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            padding: 0;
+        }
+        /* Removed extra space between logo text and link group */
+        .nav-buttons a {
+             margin-left: 10px;
+        }
+
+        /* MAIN WRAPPER - (Kept from Dashboard CSS) */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        /* HEADER - (Kept from Dashboard CSS) */
+        .welcome-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+            margin-bottom: 30px;
+        }
+        .welcome-box h1 {
+            margin: 0 0 10px;
+        }
+        .welcome-box p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* FEATURE GRID - (Kept from Dashboard CSS) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+            transition: 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #0b5cff;
+            cursor: pointer;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0b5cff;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="home.html" class="logo-text">DapatKerja</a>
+        <div class="nav-buttons">
+            <a href="#" onclick="logoutUser()">Logout</a> 
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="welcome-box">
+            <h1>Welcome Back!</h1>
+            <p>Your journey to getting hired starts here.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Chat Buddy</h3>
+                <p>Your personal assistant to help rewrite, improve, and generate CV content.</p>
+                <a class="btn" href="chat.html">Open Chat Buddy</a>
+            </div>
+
+            <div class="card">
+                <h3>Materials</h3>
+                <p>Read tutorials and guides to help prepare for your job search.</p>
+                <a class="btn" href="materials.html">View Materials</a>
+            </div>
+
+            <div class="card">
+                <h3>CV Builder</h3>
+                <p>Create or improve your CV with our guided tools.</p>
+                <a class="btn" href="cv-builder.html">Start Building</a>
+            </div>
+
+            <div class="card">
+                <h3>Training Programs</h3>
+                <p>Join our upcoming training sessions to level up your skills.</p>
+                <a class="btn" href="training.html">See Programs</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function logoutUser() {
+        // PROTOTYPE: Simulate clearing the login status
+        localStorage.removeItem("loggedIn"); 
+        
+        // Redirect to the login page (or whichever page you designate as the entry)
+        window.location.href = "login.html"; 
+    }
+    </script>
+</body>
+</html>

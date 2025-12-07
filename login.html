@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Login - DapatKerja</title>
+<style>
+  :root{--blue:#0d47ff;--blue-dark:#0933b3}
+  html,body{height:100%;margin:0}
+  body{
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg,#f4f9ff 0%, #eef6ff 60%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+
+  /* container slightly nudged up so it feels centered visually (fixes offset) */
+  .login-box{
+    width:360px;
+    max-width:94%;
+    background:#fff;
+    border-radius:14px;
+    padding:28px;
+    box-shadow:0 10px 30px rgba(8,30,70,0.08);
+    text-align:center;
+    transform: translateY(-6px); /* visual offset tweak */
+    transition: transform .18s ease;
+  }
+  .login-box:active{ transform: translateY(-2px) }
+
+  .logo{
+    width:96px;
+    height:auto;
+    display:block;
+    margin:0 auto 12px;
+  }
+
+  h2{
+    margin:0 0 14px;
+    color:var(--blue);
+    font-size:20px;
+    font-weight:700;
+  }
+
+  .inputs{display:block}
+  input{
+    box-sizing:border-box;
+    width:100%;
+    padding:12px 12px;
+    margin:8px 0;
+    border-radius:10px;
+    border:1px solid #d6deff;
+    font-size:15px;
+    outline:none;
+    transition: box-shadow .12s, border-color .12s;
+  }
+  input:focus{
+    border-color:var(--blue);
+    box-shadow:0 6px 18px rgba(13,71,255,0.08);
+  }
+
+  .login-btn{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    border-radius:10px;
+    border:none;
+    background:var(--blue);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    font-size:15px;
+  }
+  .login-btn:hover{ background:var(--blue-dark) }
+
+  .error{
+    display:none;
+    margin-top:12px;
+    color:#c53030;
+    font-size:14px;
+    opacity:0;
+    transition:opacity .18s;
+  }
+  .error.show{ display:block; opacity:1 }
+
+  .small{
+    margin-top:12px;
+    font-size:13px;
+    color:#666;
+  }
+  .small a{ color:var(--blue); text-decoration:none; font-weight:600 }
+</style>
+</head>
+<body>
+
+  <div class="login-box" role="main" aria-labelledby="loginTitle">
+    <!-- put your actual logo file name here -->
+    <img src="logo.png" alt="DapatKerja logo" class="logo" />
+    <h2 id="loginTitle">Login ke DapatKerja</h2>
+
+    <div class="inputs">
+      <input id="username" type="text" placeholder="Username " autocomplete="username" />
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password" />
+      <button class="login-btn" id="btnLogin" onclick="handleLogin()">Login</button>
+    </div>
+
+    <div id="err" class="error">Incorrect username or password.</div>
+
+
+<script>
+  // Accepted usernames (easy to change)
+  const ACCEPTED_USERS = ['admin','user'];
+  const PASSWORD = '123';
+
+  // allow pressing Enter to submit
+  document.getElementById('username').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('password').focus(); });
+  document.getElementById('password').addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); });
+
+  function handleLogin(){
+    const user = document.getElementById('username').value.trim();
+    const pass = document.getElementById('password').value;
+
+    const err = document.getElementById('err');
+    err.classList.remove('show');
+
+    // check
+    if (ACCEPTED_USERS.includes(user) && pass === PASSWORD) {
+      // persist login so refresh won't kick user back to login
+      localStorage.setItem('loggedIn','true');
+      localStorage.setItem('loggedUser', user);
+      // small animation feedback
+      document.querySelector('.login-box').style.transform = 'translateY(-2px) scale(0.995)';
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 220);
+      return;
+    }
+
+    // show error
+    err.classList.add('show');
+    // slight shake effect
+    const box = document.querySelector('.login-box');
+    box.style.transform = 'translateY(-6px)';
+    box.animate([
+      { transform: 'translateX(0)' },
+      { transform: 'translateX(-8px)' },
+      { transform: 'translateX(8px)' },
+      { transform: 'translateX(0)' }
+    ], { duration: 260, iterations: 1 });
+  }
+
+  // Optional: if already logged in, send to dashboard immediately
+  if (localStorage.getItem('loggedIn')) {
+    // small safety: if already logged in, go to dashboard
+    // comment out if you don't want auto-redirect
+    // window.location.href = 'dashboard.html';
+  }
+</script>
+
+</body>
+</html>
