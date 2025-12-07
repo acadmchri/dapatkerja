@@ -1,38 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilih Paket</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <title>Pilih Plan - DapatKerja</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #ffffff, #eaf3ff);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+            color: #003d99;
+            font-weight: 700;
+        }
+
+        p {
+            color: #444;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: auto;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.25s;
+            border: 2px solid transparent;
+            text-align: left;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            border-color: #007bff;
+        }
+
+        .plan-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .price {
+            text-align: center;
+            font-size: 22px;
+            color: #007bff;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .premium {
+            background: linear-gradient(135deg, #007bff, #003d99);
+            color: white;
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .premium:hover {
+            border-color: white;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        li::before {
+            content: '✔';
+            margin-right: 10px;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .premium li::before {
+            color: #ffea00;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-free {
+            background: #007bff;
+            color: white;
+        }
+        .btn-free:hover {
+            background: #005fcc;
+        }
+
+        .btn-premium {
+            background: #ffea00;
+            color: #003d99;
+        }
+        .btn-premium:hover {
+            background: #ffdd00;
+        }
+
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <img src="logo.png" class="nav-logo">
-<h1 class="logo-text">DapatKerja</h1>   
-    </nav>
+    <h1>Pilih Paket Keanggotaan</h1>
+    <p>Tentukan paket sesuai kebutuhan karir kamu!</p>
 
-    <section class="plans">
-        <h2>Pilih Paket Langganan</h2>
+    <div class="container">
 
-        <div class="plan-container">
+        <!-- FREE PLAN -->
+        <div class="plan-card">
+            <div class="plan-title">FREE PLAN</div>
+            <div class="price">Rp 0</div>
 
-            <div class="plan-card">
-                <h3>Free Plan</h3>
-                <p>Mulai belajar dan akses fitur dasar.</p>
-                <button onclick="chooseFree()">Pilih</button>
-            </div>
+            <ul>
+                <li>We will help you make your CV</li>
+                <li>Access to limited materials</li>
+                <li>Limited use Chat Buddy</li>
+                <li>Help you apply to jobs</li>
+            </ul>
 
-            <div class="plan-card">
-                <h3>Premium</h3>
-                <p>Rp 3.000.000</p>
-                <button onclick="choosePremium()">Pilih</button>
-            </div>
-
+            <button class="btn-free" onclick="chooseFree()">Pilih Free Plan</button>
         </div>
-    </section>
+
+        <!-- PREMIUM PLAN -->
+        <div class="plan-card premium">
+            <div class="plan-title">PREMIUM PLAN</div>
+            <div class="price" style="color: #ffea00;">3.000.000 Rp</div>
+
+            <ul>
+                <li>AI-scanned CV building</li>
+                <li>Unlimited access to all materials</li>
+                <li>Unlimited Chat Buddy usage</li>
+                <li>We provide job positions for you</li>
+                <li>Access to multiple training programs</li>
+            </ul>
+
+            <button class="btn-premium" onclick="premium()">Pilih Premium Plan</button>
+        </div>
+
+    </div>
+
+<script>
+function chooseFree() {
+    // Redirects directly to the login page, as requested.
+    window.location.href = "login.html";
+}
+
+function premium() {
+    alert("Premium belum tersedia saat ini.");
+}
+</script>
 
 </body>
 </html>
